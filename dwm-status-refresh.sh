@@ -51,6 +51,10 @@ print_user(){
 	whoami
 }
 
+print_week(){
+	date | cut -d" " -f4
+}
+
 #dwm_rainbarf() {
 #	rainstr=$(rainbarf)
 #	r1=$(echo $rainstr | cut -d] -f5 | cut -d'#' -f1)
@@ -187,7 +191,7 @@ vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
 #xsetroot -name "  💿 $(print_mem)M ⬇️ $vel_recv ⬆️ $vel_trans $(dwm_alsa) [ $(print_bat) ]$(show_record) $(print_date) "
-xsetroot -name "$(dwm_rainbarf)  $(print_user)  $(print_mem)M  $(print_cpu)%  $(print_harddisk) $(dwm_alsa) [ $(print_bat)]$(show_record) $(print_date) "
+xsetroot -name "$(dwm_rainbarf)                                             $(print_user)      $(print_mem)M       $(print_cpu)%        $(print_harddisk)     $(dwm_alsa)     [ $(print_bat)]    $(show_record)     $(print_date)      $(print_week) "
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes
